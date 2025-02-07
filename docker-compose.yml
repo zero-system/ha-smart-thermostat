@@ -1,0 +1,12 @@
+services:
+  homeassistant:
+    container_name: home-assistant-dev
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./config:/config
+      - ./smart_selecting_thermostat:/config/custom_components/smart_selecting_thermostat
+    environment:
+      - TZ=America/Denver
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
